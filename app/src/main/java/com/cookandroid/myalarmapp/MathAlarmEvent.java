@@ -1,6 +1,7 @@
 package com.cookandroid.myalarmapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,8 +93,11 @@ public class MathAlarmEvent extends Activity {
                 try {
                     int userInput = Integer.parseInt(calc.getText().toString());
                     if (userInput == result) {
-                        // 정답 처리
-                        finishAffinity();
+                        mediaPlayer.stop();
+                        mediaPlayer.reset();
+                        mediaPlayer.release();
+                        Intent intent = new Intent(getApplicationContext(), AlarmInterface.class);
+                        startActivity(intent);
                     } else {
                         // 오답 처리
                         Toast.makeText(MathAlarmEvent.this, "오답입니다", Toast.LENGTH_SHORT).show();
@@ -108,13 +112,4 @@ public class MathAlarmEvent extends Activity {
 
     }
 
-    @Override
-    protected void onDestroy() { // 알람을 꺼서 앱이 닫아질 경우
-        super.onDestroy();
-        if(mediaPlayer!=null) {
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            mediaPlayer.release();
-        }
-    }
 }

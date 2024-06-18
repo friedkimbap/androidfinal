@@ -1,6 +1,7 @@
 package com.cookandroid.myalarmapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -92,7 +93,11 @@ public class KoreanAlarmEvent extends Activity {
             public void onClick(View view) {
                 String userInput = answer.getText().toString();
                 if (userInput.equals(selectedLine)) {
-                    finishAffinity(); // 정답 처리
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
+                    mediaPlayer.release();
+                    Intent intent = new Intent(getApplicationContext(), AlarmInterface.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(KoreanAlarmEvent.this, "오답입니다", Toast.LENGTH_SHORT).show(); // 오답 처리
                 }
@@ -100,13 +105,4 @@ public class KoreanAlarmEvent extends Activity {
         });
     }
 
-    @Override
-    protected void onDestroy() { // 알람을 꺼서 앱이 닫아질 경우
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.reset();
-            mediaPlayer.release();
-        }
-    }
 }
