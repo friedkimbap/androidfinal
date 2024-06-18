@@ -42,7 +42,6 @@ public class AlarmInterface extends Activity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 alarmSet selectAlarm = alarmList.get(i);
-                System.out.println("interface 클래스 57번째 줄 : "+selectAlarm.getIndex());
                 int index = selectAlarm.getIndex();
                 alarmList.remove(i);
 

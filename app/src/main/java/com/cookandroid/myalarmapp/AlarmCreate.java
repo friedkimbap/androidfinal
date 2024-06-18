@@ -67,15 +67,11 @@ public class AlarmCreate extends Activity {
             int currentHour = Integer.parseInt(nowParts[3]);
             int currentMinute = Integer.parseInt(nowParts[4]);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                time.setMinute(currentMinute + 1);
-            }
-
             if (checkDateTimeValidity(currentYear, currentMonth, currentDay, currentHour, currentMinute)) {
                 String setName = name.getText().toString();
 
                 int year = date.getYear();
-                int month = date.getMonth() + 1; // DatePicker months are 0-based
+                int month = date.getMonth() + 1;
                 int day = date.getDayOfMonth();
 
                 int hour = Build.VERSION.SDK_INT >= 23 ? time.getHour() : time.getCurrentHour();
