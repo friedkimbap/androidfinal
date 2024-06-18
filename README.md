@@ -10,7 +10,8 @@
 
 
 
-## 각 액티비티 화면
+## 각 액티비티
 
 #### 초기 화면
-![MainActivity](https://github.com/friedkimbap/androidfinal/assets/89963027/98482ab9-e8b0-401a-9151-d9b4f31aeabd)
+<img src="https://github.com/friedkimbap/androidfinal/assets/89963027/98482ab9-e8b0-401a-9151-d9b4f31aeabd"  width="200" height="340"/>
+
